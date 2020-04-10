@@ -16,6 +16,9 @@ class SinglePost extends React.Component {
                 </li>
                 <li>{new Date(this.props.date * 1000).toLocaleDateString()}</li>
             </ul>
+            <div className="post-content">
+                <a className="more-link" href={"/p/" + this.props.id}>Read article</a>
+            </div>
         </article>;
     }
 }
