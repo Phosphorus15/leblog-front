@@ -1,5 +1,25 @@
 import React from 'react';
 
+class SinglePost extends React.Component {
+    render() {
+        return <article className="post">
+            <h1 className="post-title">
+                <a href={"/p/" + this.props.id}>
+                    {this.props.title}
+                </a>
+            </h1>
+            <ul className="post-date">
+                <li>
+                    <a href={"/u/" + this.props.poster} className="post-info-user">
+                        {this.props.poster}
+                    </a>
+                </li>
+                <li>{new Date(this.props.date * 1000).toLocaleDateString()}</li>
+            </ul>
+        </article>;
+    }
+}
+
 class PostBillboard extends React.Component {
     constructor(props) {
         super(props);
