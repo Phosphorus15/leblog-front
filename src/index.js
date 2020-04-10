@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Axios from 'axios';
+import './stream';
 import './index.css';
+import PostBillboard from "./stream";
 
 class FrontPage extends React.Component {
 
@@ -21,7 +22,7 @@ class FrontPage extends React.Component {
                 </nav>
             </header>
             <main className="main">
-                <h3> Recent Posts : </h3>
+                <PostBillboard/>
             </main>
         </div>)
     }
