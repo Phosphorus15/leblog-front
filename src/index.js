@@ -34,9 +34,9 @@ class FrontPage extends React.Component {
         return (<div className="container">
             <header className="header">
                 <h1 className="title">
-                    <a className="logo" href="/">
+                    <Link className="logo" to="/">
                         Welcome to the blogging system
-                    </a>
+                    </Link>
                 </h1>
                 <nav className="links">
                     <ul className="hide-links">
