@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './stream';
 import './index.css';
 import PostBillboard from "./stream";
 
