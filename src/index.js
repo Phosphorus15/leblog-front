@@ -1,7 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 import PostBillboard from "./stream";
+
+function App() {
+    return (
+        <Router>
+            <div>
+                <Switch>
+                    <Route path="/login">
+                    </Route>
+                    <Route path="/register">
+                    </Route>
+                    <Route path="/">
+                        <FrontPage />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+    );
+}
+
 
 class FrontPage extends React.Component {
 
@@ -15,8 +40,8 @@ class FrontPage extends React.Component {
                 </h1>
                 <nav className="links">
                     <ul className="hide-links">
-                        <li><a href="./login">Login</a></li>
-                        <li><a href="./register">Register</a></li>
+                        <li><Link to="/login">Login</Link></li>
+                        <li><Link to="/register">Register</Link></li>
                     </ul>
                 </nav>
             </header>
@@ -28,7 +53,4 @@ class FrontPage extends React.Component {
 
 }
 
-ReactDOM.render(
-    <FrontPage/>,
-    document.getElementById("root")
-)
+ReactDOM.render(<App/>, document.getElementById("root"))
