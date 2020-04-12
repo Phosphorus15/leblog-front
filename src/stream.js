@@ -1,4 +1,5 @@
 import React from 'react';
+import {load_posts} from "./network";
 
 class SinglePost extends React.Component {
     render() {
@@ -27,13 +28,27 @@ class PostBillboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loaded: false
+            loaded: false,
+            failed: false,
+            posts: []
         }
+    }
+
+    componentDidMount() {
+        load_posts().then(res => {
+            this.setState(
+                {
+                    loaded: true,
+                    posts: res.data
+                }
+            )
+        }).catch(() => this.setState({failed: true}))
     }
 
     renderInner() {
         if (this.state.loaded) {
-            return <div/>
+            return this.state.posts.map(post => <SinglePost id={post.id} poster={post.poster} date={post.date}
+                                                            title={post.title}/>)
         } else return <div className="flipping-load" id="loading-text">Now loading...</div>
     }
 

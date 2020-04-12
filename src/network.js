@@ -1,7 +1,5 @@
 import Axios from 'axios';
 
-function load_posts() {
-    Axios.get("/posts").then(res => {
-      console.log(res)
-    })
+export function load_posts() {
+    return Axios.get("/posts")
 }
