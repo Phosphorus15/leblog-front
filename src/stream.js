@@ -3,7 +3,7 @@ import {load_posts} from "./network";
 
 class SinglePost extends React.Component {
     render() {
-        return <article className="post">
+        return <article className="post" key={this.props.id}>
             <h1 className="post-title">
                 <a href={"/p/" + this.props.id}>
                     {this.props.title}
