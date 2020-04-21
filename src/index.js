@@ -8,7 +8,7 @@ import {
     Link
 } from "react-router-dom";
 import PostBillboard from "./stream";
-import RegisterForm from "./form";
+import {PageHeader, RegisterPage} from "./form";
 
 window.recaptchaOptions = {
     useRecaptchaNet: true
@@ -22,7 +22,7 @@ function App() {
                     <Route path="/login">
                     </Route>
                     <Route path="/register">
-                        <RegisterForm/>
+                        <RegisterPage/>
                     </Route>
                     <Route path="/">
                         <FrontPage />
@@ -33,24 +33,11 @@ function App() {
     );
 }
 
-
 class FrontPage extends React.Component {
 
     render() {
         return (<div className="container">
-            <header className="header">
-                <h1 className="title">
-                    <Link className="logo" to="/">
-                        Welcome to the blogging system
-                    </Link>
-                </h1>
-                <nav className="links">
-                    <ul className="hide-links">
-                        <li><Link to="/login">Login</Link></li>
-                        <li><Link to="/register">Register</Link></li>
-                    </ul>
-                </nav>
-            </header>
+            <PageHeader/>
             <main className="main">
                 <PostBillboard/>
             </main>
