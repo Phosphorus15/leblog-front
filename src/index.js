@@ -25,7 +25,7 @@ function App() {
                         <RegisterPage/>
                     </Route>
                     <Route path="/">
-                        <FrontPage />
+                        <FrontPage/>
                     </Route>
                 </Switch>
             </div>

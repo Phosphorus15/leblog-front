@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 class PageHeader extends React.Component {
     render() {
-        return  <header className="header">
+        return <header className="header">
             <h1 className="title">
                 <Link className="logo" to="/">
                     Welcome to the blogging system
@@ -19,12 +19,12 @@ class PageHeader extends React.Component {
     }
 }
 
-class RegisterPage extends React.Component{
+class RegisterPage extends React.Component {
     render() {
         return <div className="container">
             <PageHeader/>
             <RegisterForm/>
-            </div>
+        </div>
     }
 }
 
