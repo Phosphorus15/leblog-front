@@ -8,6 +8,11 @@ import {
     Link
 } from "react-router-dom";
 import PostBillboard from "./stream";
+import RegisterForm from "./form";
+
+window.recaptchaOptions = {
+    useRecaptchaNet: true
+}
 
 function App() {
     return (
@@ -17,6 +22,7 @@ function App() {
                     <Route path="/login">
                     </Route>
                     <Route path="/register">
+                        <RegisterForm/>
                     </Route>
                     <Route path="/">
                         <FrontPage />
