@@ -60,6 +60,7 @@ class RegisterForm extends React.Component {
     render() {
         return <div className="login">
             <form className="box standard-form" onSubmit={this.handleSubmit}>
+                <div className="form-caption">Create your account</div>
                 <input placeholder="我其实不是密码哒~" className="input" type="text" name="username" onChange={this.handleChange}/>
                 <input type="text" name="mail" onChange={this.handleChange}/>
                 <input type="password" name="pwd" onChange={this.handleChange}/>

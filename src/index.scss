@@ -15,12 +15,19 @@ $primary-color: #f78769;
     width: 45%;
     border: 1px dashed rgba(0, 0, 0, 0.15);
     border-radius: 20px;
-    padding: 2.6em;
+    padding: 0.6em 2.6em 2.6em;
   }
 
   .standard-form {
     display: flex;
     flex-direction: column;
+
+    .form-caption {
+      font-family: Lora-Bold, serif;
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
 
     .submit {
       margin-top: 10px;
