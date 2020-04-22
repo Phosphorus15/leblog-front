@@ -1,7 +1,27 @@
 import React from 'react';
 import {load_posts} from "./network";
+import PageHeader from "./header";
+
+class PostPage extends React.Component {
+    render() {
+        return <div className="container">
+            <PageHeader/>
+            <main className="main">
+
+            </main>
+        </div>
+    }
+}
 
 class SinglePost extends React.Component {
+
+    renderContent() {
+        if (this.props.showContent)
+            return <div className="post-content" dangerouslySetInnerHTML={{__html: this.props.data}}/>
+        else
+            return <a className="more-link" href={"/p/" + this.props.id}>Read article</a>
+    }
+
     render() {
         return <article className="post" key={this.props.id}>
             <h1 className="post-title">
@@ -18,7 +38,7 @@ class SinglePost extends React.Component {
                 <li>{new Date(this.props.date * 1000).toLocaleDateString()}</li>
             </ul>
             <div className="post-content">
-                <a className="more-link" href={"/p/" + this.props.id}>Read article</a>
+                {this.renderContent()}
             </div>
         </article>;
     }
@@ -47,8 +67,9 @@ class PostBillboard extends React.Component {
 
     renderInner() {
         if (this.state.loaded) {
-            return this.state.posts.map(post => <SinglePost id={post.id} poster={post.poster} date={post.date}
-                                                            title={post.title}/>)
+            return this.state.posts.map(post => <SinglePost id={post.id} poster={post.poster} data={post.data}
+                                                            date={post.date}
+                                                            title={post.title} showContent={false}/>)
         } else return <div className="flipping-load" id="loading-text">Now loading...</div>
     }
 
