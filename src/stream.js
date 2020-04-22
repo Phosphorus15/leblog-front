@@ -1,13 +1,44 @@
 import React from 'react';
-import {load_posts} from "./network";
+import {load_posts, query_posts} from "./network";
 import PageHeader from "./header";
 
-class PostPage extends React.Component {
+class SinglePostPage extends React.Component {
+
+    state = {
+        loaded: false,
+        failed: false,
+        post: null
+    }
+
+    componentDidMount() {
+        const {pid} = this.props.match.params
+        if (pid.match(/^\d+$/))
+            query_posts("id=" + pid).then(res => {
+                if (res.data.size > 0) {
+                    this.setState({post: res.data[0], loaded: true})
+                } else {
+                    this.setState({failed: true})
+                }
+            }).catch(() => {
+                this.setState({failed: true})
+            })
+        else this.setState({failed: true})
+    }
+
+    renderInner() {
+        if (this.state.loaded) {
+            const post = this.state.post
+            return <SinglePost id={post.id} poster={post.poster} data={post.data}
+                               date={post.date}
+                               title={post.title} showContent={true}/>
+        } else return <div className="flipping-load" id="loading-text">Now loading...</div>
+    }
+
     render() {
         return <div className="container">
             <PageHeader/>
             <main className="main">
-
+                {this.renderInner()}
             </main>
         </div>
     }
@@ -80,4 +111,4 @@ class PostBillboard extends React.Component {
     }
 }
 
-export default PostBillboard
+export {PostBillboard, SinglePostPage}

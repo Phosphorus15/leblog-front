@@ -7,9 +7,9 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import PostBillboard from "./stream";
+import {PostBillboard, SinglePostPage} from "./stream";
 import {LoginPage, PageHeader, RegisterPage} from "./form";
-//  等等，我先把这个做出来看一下...
+
 window.recaptchaOptions = {
     useRecaptchaNet: true
 }
@@ -25,6 +25,7 @@ function App() {
                     <Route path="/register">
                         <RegisterPage/>
                     </Route>
+                    <Route path="/p/:pid" component={SinglePostPage}/>
                     <Route path="/">
                         <FrontPage/>
                     </Route>
