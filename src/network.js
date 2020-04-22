@@ -8,3 +8,7 @@ export function load_posts() {
 export function submit_register(request) {
     return Axios.post("/register", querystring.stringify(request))
 }
+
+export function submit_login(request) {
+    return Axios.post("/login", querystring.stringify(request))
+}
