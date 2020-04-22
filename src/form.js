@@ -34,30 +34,31 @@ class RegisterForm extends React.Component {
         super(props);
         this.state = {
             username: '',
-            email: '',
-            password: '',
+            mail: '',
+            pwd: '',
+        }
+        this.handleChange = (event) => {
+            let target = event.target
+            let value = target.value
+            let name = target.name
+            this.setState({
+                [name]: value
+            })
         }
     }
 
     handleSubmit() {
     }
 
-    handleChange(event) {
-        let target = event.target
-        let value = target.value
-        let name = target.name
-        this.setState({
-            [name]: value
-        })
-    }
-
     render() {
-        return <form className="standard-form" onSubmit={this.handleSubmit}>
-            <input type="text" name="username" onChange={this.handleChange}/>
-            <input type="text" name="mail" onChange={this.handleChange}/>
-            <input type="password" name="pwd" onChange={this.handleChange}/>
-            <input type="submit" name="submit"/>
-        </form>
+        return <div className="login">
+            <form className="box standard-form" onSubmit={this.handleSubmit}>
+                <input placeholder="我其实不是密码哒~" className="input" type="text" name="username" onChange={this.handleChange}/>
+                <input type="text" name="mail" onChange={this.handleChange}/>
+                <input type="password" name="pwd" onChange={this.handleChange}/>
+                <input className="primary-button submit" type="submit" value="Register" name="submit"/>
+            </form>
+        </div>
     }
 }
 

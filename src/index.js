@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import {
     HashRouter as Router,
     Switch,
@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import PostBillboard from "./stream";
 import {PageHeader, RegisterPage} from "./form";
-
+//  等等，我先把这个做出来看一下...
 window.recaptchaOptions = {
     useRecaptchaNet: true
 }
