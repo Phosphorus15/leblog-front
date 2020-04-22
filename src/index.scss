@@ -5,7 +5,6 @@ $primary-color: #f78769;
   display: flex;
   justify-content: center;
 
-  // 草我暴力弄了QAQ
   @media (max-width: 800px) {
     .box {
       width: 100% !important;
@@ -14,8 +13,6 @@ $primary-color: #f78769;
 
   .box {
     width: 45%;
-    // 差不多了差不多了，残废响应式（瘫
-    // 今天是世界地球日五十周年欸~
     border: 1px dashed rgba(0, 0, 0, 0.15);
     border-radius: 20px;
     padding: 2.6em;
