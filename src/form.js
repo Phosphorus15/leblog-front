@@ -61,9 +61,9 @@ class RegisterForm extends React.Component {
         return <div className="login">
             <form className="box standard-form" onSubmit={this.handleSubmit}>
                 <div className="form-caption">Create your account</div>
-                <input placeholder="我其实不是密码哒~" className="input" type="text" name="username" onChange={this.handleChange}/>
-                <input type="text" name="mail" onChange={this.handleChange}/>
-                <input type="password" name="pwd" onChange={this.handleChange}/>
+                <input placeholder="Username" className="input" type="text" name="username" onChange={this.handleChange}/>
+                <input placeholder="Email" type="text" name="mail" onChange={this.handleChange}/>
+                <input placeholder="Password" type="password" name="pwd" onChange={this.handleChange}/>
                 <input className="primary-button submit" type="submit" value="Register" name="submit"/>
             </form>
         </div>
@@ -110,8 +110,8 @@ class LoginForm extends React.Component {
         return <div className="login">
             <form className="box standard-form" onSubmit={this.handleSubmit}>
                 <div className="form-caption">Login to le'blog</div>
-                <input placeholder="我其实不是密码哒~" className="input" type="text" name="username" onChange={this.handleChange}/>
-                <input type="password" name="pwd" onChange={this.handleChange}/>
+                <input placeholder="Username" className="input" type="text" name="username" onChange={this.handleChange}/>
+                <input placeholder="Password" type="password" name="pwd" onChange={this.handleChange}/>
                 <input className="primary-button submit" type="submit" value="Login" name="submit"/>
             </form>
         </div>
