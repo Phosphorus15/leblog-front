@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {submit_register} from "./network";
 
 class PageHeader extends React.Component {
     render() {
@@ -37,17 +38,23 @@ class RegisterForm extends React.Component {
             mail: '',
             pwd: '',
         }
-        this.handleChange = (event) => {
-            let target = event.target
-            let value = target.value
-            let name = target.name
-            this.setState({
-                [name]: value
-            })
-        }
     }
 
-    handleSubmit() {
+    handleChange = (event) => {
+        let target = event.target
+        let value = target.value
+        let name = target.name
+        this.setState({
+            [name]: value
+        })
+    }
+
+
+    handleSubmit = (event) => {
+        submit_register(this.state).then(res => {
+
+        })
+        event.preventDefault()
     }
 
     render() {
