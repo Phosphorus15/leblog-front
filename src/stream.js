@@ -12,7 +12,7 @@ class SinglePostPage extends React.Component {
 
     componentDidMount() {
         const {pid} = this.props.match.params
-        if (pid.match(/^\d+$/))
+        if (pid && pid.match(/^\d+$/))
             query_posts("id=" + pid).then(res => {
                 if (res.data.size > 0) {
                     this.setState({post: res.data[0], loaded: true})
@@ -75,6 +75,20 @@ class SinglePost extends React.Component {
     }
 }
 
+class UserPosts extends React.Component {
+
+    render() {
+        const {user} = this.props.match.params
+        return (<div className="container">
+            <PageHeader/>
+            <main className="main">
+                <PostBillboard user={user}/>
+            </main>
+        </div>)
+    }
+
+}
+
 class PostBillboard extends React.Component {
     constructor(props) {
         super(props);
@@ -83,10 +97,14 @@ class PostBillboard extends React.Component {
             failed: false,
             posts: []
         }
+        if(this.props.match) {
+            const {user} = this.props.match.params
+            this.user = user
+        }
     }
 
     componentDidMount() {
-        load_posts().then(res => {
+        (this.user && this.user.length > 0 ? query_posts("user=" + this.user) : load_posts()).then(res => {
             this.setState(
                 {
                     loaded: true,
@@ -111,4 +129,4 @@ class PostBillboard extends React.Component {
     }
 }
 
-export {PostBillboard, SinglePostPage}
+export {PostBillboard, SinglePostPage, UserPosts}

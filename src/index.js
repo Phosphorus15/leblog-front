@@ -7,7 +7,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import {PostBillboard, SinglePostPage} from "./stream";
+import {PostBillboard, SinglePostPage, UserPosts} from "./stream";
 import {LoginPage, PageHeader, RegisterPage} from "./form";
 
 window.recaptchaOptions = {
@@ -26,6 +26,7 @@ function App() {
                         <RegisterPage/>
                     </Route>
                     <Route path="/p/:pid" component={SinglePostPage}/>
+                    <Route path="/u/:user" component={UserPosts}/>
                     <Route path="/">
                         <FrontPage/>
                     </Route>
