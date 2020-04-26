@@ -1,6 +1,7 @@
 import React from 'react';
 import {load_posts, query_posts} from "./network";
 import PageHeader from "./header";
+import {Link} from "react-router-dom";
 
 class SinglePostPage extends React.Component {
 
@@ -50,21 +51,21 @@ class SinglePost extends React.Component {
         if (this.props.showContent)
             return <div className="post-content" dangerouslySetInnerHTML={{__html: this.props.data}}/>
         else
-            return <a className="more-link" href={"/p/" + this.props.id}>Read article</a>
+            return <Link className="more-link" to={"/p/" + this.props.id}>Read article</Link>
     }
 
     render() {
         return <article className="post" key={this.props.id}>
             <h1 className="post-title">
-                <a href={"/p/" + this.props.id}>
+                <Link to={"/p/" + this.props.id}>
                     {this.props.title}
-                </a>
+                </Link>
             </h1>
             <ul className="post-date">
                 <li>
-                    <a href={"/u/" + this.props.poster} className="post-info-user">
+                    <Link to={"/u/" + this.props.poster} className="post-info-user">
                         {this.props.poster}
-                    </a>
+                    </Link>
                 </li>
                 <li>{new Date(this.props.date * 1000).toLocaleDateString()}</li>
             </ul>
