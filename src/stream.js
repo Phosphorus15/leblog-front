@@ -15,7 +15,7 @@ class SinglePostPage extends React.Component {
         const {pid} = this.props.match.params
         if (pid && pid.match(/^\d+$/))
             query_posts("id=" + pid).then(res => {
-                if (res.data.size > 0) {
+                if (res.data.length > 0) {
                     this.setState({post: res.data[0], loaded: true})
                 } else {
                     this.setState({failed: true})
